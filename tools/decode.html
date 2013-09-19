@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <script>
+      var data = "zw24l6k4e3t4jnt4qj24xh242kty24wrt413n243n9h243pdxt41csb43iyb6k43pk7243nmr24".split(4),
+        line,
+        bool;
+
+
+      for (y in data){
+
+      console.log(data[y]);
+
+
+        line = parseInt(data[y], 36) + (data[y] = bool = "");
+
+
+
+
+        for (x in line){
+
+          first = true;
+
+          for (i=0; i<line[x]; i++){
+            data[y] += first ? line[x] :  " ";
+          first = false;
+         }
+
+ 
+          bool = !bool;
+        }
+      }
+
+      data = data.join("\n")//.replace(/0/g, " ").replace(/1/g, "#");
+
+      document.body.innerHTML = "<pre>" + data
+
+    </script>
+  </body>
+</html>

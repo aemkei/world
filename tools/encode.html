@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <script>
+      var b = document.body;
+      var c = document.getElementsByTagName('canvas')[0];
+      var a = c.getContext('2d');
+      document.body.clientWidth;
+
+      c.width = 30;
+      c.height = 16;
+      
+      var i = new Image();
+
+      i.onload = function(){
+        a.drawImage(i,0,0);
+        data = a.getImageData(0,0,30,16).data;
+
+        out = [];
+
+        for (var y=0; y<16; y++){
+
+          fill = false;
+          count = 0;
+
+          line = "";
+
+          for (var x=0; x<30; x++){
+            pixel = (data[(y*30 + x)*4]) != 255;
+
+            if (pixel != fill){
+              fill = pixel;
+              line += count.toString(16);
+              count = 1;
+            } else {
+              count++
+            }
+          }
+
+          fill = false;
+
+          out.push((1*line).toString(36));
+        }
+
+        out = out.join("4");
+        b.innerHTML = out;
+
+      }
+
+      i.src = "world.gif";
+
+
+
+    </script>
+  </body>
+</html>

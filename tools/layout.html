@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JS1k, 1k demo submission [ID]</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+
+<textarea id="input" onkeyup="update()" cols=100 rows=8 style="font-family: monospace">f=0;eval(z='f+=.02,s=Math,p="<pre>";for(y in n="zw24l6k4e3t4jnt4qj24xh242kty24wrt413n243n9h243pdxt41csb43pkyk43pk7243pk7241bjj".split(4)){for(a in t=parseInt(n[y],36)+(r=x=o=[])){for(i=0;t[a]>i;i+=.05)x-=.05,0>s.cos(e=x/s.PI+f)&&(r[~~(32*s.sin(e)*s.sin(y/7+.5))+62]=o?1:2);o=!o}for(x=0;130>x;x+=2)p+="   *#"[r[x]+r[x+1]]||Z[x/2+66*y].replace("<","&lt;");p+="\\n"}b.innerHTML=p,setTimeout(z,9)')</textarea>
+
+    <pre id="out"></pre>
+
+    <script>
+
+
+    $out = document.getElementById("out");
+  
+    function update(){
+
+      script = document.getElementById("input").value;      
+
+
+      var data = [], 
+        height = 16,
+        width = 59,
+        out = "",
+        i = 0,
+        x, y;
+
+      function rotate(y, rotation){
+        return ~~(rotation * Math.sin(y/7+0.5) * 16 + width/2);
+      };
+
+      for (y=0; y<height; y++){
+
+        data[y] = [];
+
+        right = rotate(y, 1)+1;
+        left = rotate(y, -1)-1;
+
+
+        for (x=0; x < width; x+=1){
+
+          if (x > right || x < left){
+            
+            c = script[i++] || "";
+            out += c.fontcolor(["#80C", "#F99", , "#BBB"][(c < "A") | 2*(c < "0")]);
+
+          } else if (x == right){
+            out += "*/";
+          } else if (x == left){
+            out += "/*";
+          } else {
+            out += " "
+          }
+
+        }
+
+        out += "\\\n";
+      }
+
+
+      $out.innerHTML = out;
+      $out.innerHTML += "\n\n" + $out.innerText.length;
+
+  }
+
+    update();
+
+    </script>
+  </body>
+</html>

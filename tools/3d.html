@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<head>
+  <title>rotate3D - 140bytes</title>
+  <style type="text/css">
+    body { background-color: #000; overflow: hidden; }
+    #stage { width: 1px; height: 1px; margin: 200px auto 0; position: relative; }
+    a { display: block; text-align: center; color: #FFF; }  
+    #stage div { background: #FFF; width: 4px; height: 4px; position: absolute; }
+  </style>
+</head>
+
+<body>
+  <div id="stage"></div>
+
+  <script>  
+    function rotate3D(
+      x, y, z, 
+      rotation
+    ){
+      var sin = Math.sin(rotation),
+        cos = Math.cos(rotation);
+
+      // returns the new coords as an object
+      return {
+        x: sin*z + cos*x,
+        y: y,
+        z: cos*z - sin*x
+      };
+    }
+
+    points = []
+
+    var data = "zw24l6k4e3t4jnt4qj24xh242kty24wrt413n243n9h243pdxt41csb43pkyk43pk7243pk7241bjj".split(4),
+      line,
+      bool,
+      a;
+
+    for (y in data){
+      line = parseInt(data[y], 36) + (x = data[y] = bool = "");
+      for (a in line){
+        for (i=0; i<line[a]; i+=0.5){
+          x-=0.5;
+
+          if (bool){
+            points.push(rotate3D(
+              0,y*17, Math.sin(y/8+0.6) *150, x/Math.PI
+            ));            
+          }
+        }
+
+        bool = !bool;
+      }
+    }
+
+
+    var elems = [],
+      rotateX = 0,
+      rotate = 0;
+
+  
+    function setup(){
+      var stage = document.getElementById("stage"),
+        elem, i, point;
+    
+      for (i=0; point=points[i]; i++){
+        elem = document.createElement("div");
+        stage.appendChild(elem);
+        elems.push(elem);
+      }
+    }
+  
+    function render(){
+      var i, point, coords, size;
+    
+      rotate += 0.1;
+    
+      for (i=0; point=points[i]; i++){
+        coords = rotate3D(point.x, point.y, point.z, rotate);
+        elem = elems[i];
+        size = (200-coords.z) / 30;
+      
+        elem.style.top = coords.y + "px";
+        elem.style.left = coords.x + "px";
+        elem.style.width = size + "px";
+        elem.style.height = size + "px";
+        elem.style.opacity = 1* (coords.z < 0);
+      }
+      setTimeout(render, 40);
+    }
+  
+    setup();
+    render();
+  </script>
+</body>
