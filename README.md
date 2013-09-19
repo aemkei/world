@@ -1,4 +1,6 @@
-## World - An Animated Globe in 1024 Bytes of JavaScript
+## World 
+
+### An Animated Globe in 1024 Bytes of JavaScript
 
 Website: [aem1k.com/world](http://aem1k.com/world)
 
