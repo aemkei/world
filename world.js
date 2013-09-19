@@ -1,10 +1,3 @@
-## World - An Animated Globe in 1024 Bytes of JavaScript
-
-Website: [aem1k.com/world](http://aem1k.com/world)
-
-### Source
-
-```
 eval(z='p="<"+"pre>"/* ,.oq#+     ,._, */;for(y in n="zw24l6k\
 4e3t4jnt4qj24xh2 x/* =<,m#F^    A W###q. */42kty24wrt413n243n\
 9h243pdxt41csb yz/* #K       q##H######Am */43iyb6k43pk7243nm\
@@ -21,8 +14,3 @@ it(B = "\\\\")./*           G####B" #       */join(B+B).split\
 (Q="\'").join(B+Q/*          VQBP`        */)+Q+")//m1k")[x/2\
 +61*y-1]).fontcolor/*         TP         */(/\\w/.test(S)&&"#\
 03B");document.body.innerHTML=p+=B+"\\n"}setTimeout(z)')//
-``
-
-### Author
-
-[Martin Kleppe](http://aem1k.com) [@aemkei](http://twitter.com/aemkei)
