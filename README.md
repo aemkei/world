@@ -28,3 +28,6 @@ it(B = "\\\\")./*           G####B" #       */join(B+B).split\
 ### Author
 
 [Martin Kleppe](http://aem1k.com) [@aemkei](http://twitter.com/aemkei)
+
+
+[![Analytics](https://ga-beacon.appspot.com/UA-57649-14/aemkei/world)](https://github.com/igrigorik/ga-beacon)
